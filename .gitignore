@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.shopify/
+backups/
+test-results/
+playwright-report/
+.env*
+.DS_Store
+shopify.app*.toml
+**/shopify.app*.toml
+!shopify.app.toml.example
+!**/shopify.app.toml.example

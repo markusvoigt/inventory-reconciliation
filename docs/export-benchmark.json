@@ -1,0 +1,13 @@
+{
+  "kind": "Synthetic CSV-core traversal. Not a live Shopify or unattended browser-export benchmark.",
+  "exportedRows": 1000000,
+  "parts": 200,
+  "readerCalls": 2000,
+  "largestInputPage": 500,
+  "maximumPartRows": 5000,
+  "maximumEncodedDownloadBytes": 1970499,
+  "encodedDownloadLimit": 2097152,
+  "maximumObservedHeapAfterGc": 12636600,
+  "totalMilliseconds": 5545.89,
+  "qualification": "Rows are generated in memory. No Shopify API latency, throttling, browser IPC or download time is measured. Only one bounded CSV part is retained; the harness simulates saved-file confirmation. Real extension exports pause between parts and stop on app closure."
+}

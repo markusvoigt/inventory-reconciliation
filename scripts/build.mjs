@@ -1,0 +1,13 @@
+import {build} from 'esbuild';
+import {mkdir, writeFile} from 'node:fs/promises';
+import {gzipSync} from 'node:zlib';
+const root = new URL('../', import.meta.url).pathname;
+await mkdir(root + 'dist', {recursive: true});
+const result = await build({absWorkingDir: root, entryPoints: ['inventory-report/extensions/app-home/src/Extension.tsx'], bundle: true, minify: true, write: false, format: 'esm', target: 'es2022', jsx: 'automatic', jsxImportSource: 'preact', metafile: true});
+const code = result.outputFiles[0].contents;
+await writeFile(root + 'dist/extension.js', code);
+const compressed = gzipSync(code).byteLength;
+if (compressed > 64 * 1024) throw new Error('Extension exceeds Shopify’s 64 KB compressed bundle limit.');
+await writeFile(root + 'dist/build-info.json', JSON.stringify({bytes: code.byteLength, gzipBytes: compressed, apiVersion: '2026-07', liveStoreValidated: false}, null, 2));
+console.log('Extension bundle:', code.byteLength, 'bytes;', compressed, 'bytes gzip (limit: 65536).');
+await build({absWorkingDir: root, entryPoints: ['preview/main.tsx'], outfile: 'dist/preview.js', bundle: true, sourcemap: true, format: 'esm', target: 'es2022', jsx: 'automatic', jsxImportSource: 'preact', alias: {preact: root + 'node_modules/preact'}});

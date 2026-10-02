@@ -1,0 +1,14 @@
+{
+  "kind": "Synthetic client benchmark. Not a live Shopify throughput test.",
+  "virtualCatalogItems": 2000000,
+  "virtualLocations": 3,
+  "virtualInventoryPositions": 6000000,
+  "pagesBrowsed": 100,
+  "apiCallsIncludingFinalSeek": 202,
+  "maximumPageRows": 50,
+  "largestAnalyticsResponseRows": 90,
+  "totalMilliseconds": 52.71,
+  "medianPageMilliseconds": 0.3,
+  "p95PageMilliseconds": 0.87,
+  "qualification": "Transport is generated in memory and has no network latency. This measures the client strategy, not Shopify execution time, catalog completeness, or accounting correctness."
+}

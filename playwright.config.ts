@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir: './tests/browser', fullyParallel: false, use: {baseURL: 'http://127.0.0.1:4317', viewport: {width: 1512, height: 982}, browserName: 'chromium', channel: process.env.PLAYWRIGHT_CHANNEL || undefined, launchOptions: {executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH || undefined}}, webServer: {command: 'node scripts/preview.mjs', url: 'http://127.0.0.1:4317', reuseExistingServer: true}, reporter: 'list'});

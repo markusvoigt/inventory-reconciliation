@@ -1,0 +1,13 @@
+# Merge these settings into a Shopify CLI-generated app configuration.
+# Preserve your own generated client_id, app URL, auth settings and extension UID.
+# Do not use another merchant's app identity.
+
+[access.admin]
+direct_api_mode = "online"
+embedded_app_direct_api_access = true
+
+[access_scopes]
+scopes = "read_reports,read_inventory,read_products,read_locations"
+
+[webhooks]
+api_version = "2026-07"
